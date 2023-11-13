@@ -47,4 +47,7 @@ pub trait Database {
 
     // Remove an item with specified id
     fn remove_item(&mut self, id: i32) -> Result<Meme, DatabaseError>;
+    
+    // Get all item ids
+    fn get_items(&self) -> Vec<i32>;
 }

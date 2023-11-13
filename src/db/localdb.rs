@@ -1,9 +1,7 @@
 use super::*;
 
 use std::collections::HashMap;
-use std::fmt::format;
 use std::fs;
-use std::io::{Read, Write};
 use std::path::Path;
 
 pub struct LocalDatabase {
@@ -82,5 +80,10 @@ impl Database for LocalDatabase {
             },
             None => Err(DatabaseError::NotFound)
         }
+    }
+
+    fn get_items(&self) -> Vec<i32> {
+        let items = self.items.keys().cloned().collect();
+        items
     }
 }
